@@ -37,7 +37,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.5"],\
             ["@types/w3c-web-serial", "npm:1.0.2"],\
             ["parcel", "npm:2.6.0"],\
-            ["process", "npm:0.11.10"],\
             ["prop-types", "npm:15.8.1"],\
             ["react", "npm:18.1.0"],\
             ["react-dom", "virtual:42329c629e9e57eca2cb286fdaa3be2afa721eb7466104b876d98d8eb3be24b17fa987bb8dbc83103d4c9989cfcf15ddc911a82d4a2ac4f48ebedc98fdb66c6a#npm:18.1.0"],\
@@ -2125,7 +2124,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.5"],\
             ["@types/w3c-web-serial", "npm:1.0.2"],\
             ["parcel", "npm:2.6.0"],\
-            ["process", "npm:0.11.10"],\
             ["prop-types", "npm:15.8.1"],\
             ["react", "npm:18.1.0"],\
             ["react-dom", "virtual:42329c629e9e57eca2cb286fdaa3be2afa721eb7466104b876d98d8eb3be24b17fa987bb8dbc83103d4c9989cfcf15ddc911a82d4a2ac4f48ebedc98fdb66c6a#npm:18.1.0"],\
@@ -3100,15 +3098,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["posthtml-render", "npm:3.0.0"],\
             ["is-json", "npm:2.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["process", [\
-        ["npm:0.11.10", {\
-          "packageLocation": "./.yarn/cache/process-npm-0.11.10-aeb3b641ae-bfcce49814.zip/node_modules/process/",\
-          "packageDependencies": [\
-            ["process", "npm:0.11.10"]\
           ],\
           "linkType": "HARD"\
         }]\
