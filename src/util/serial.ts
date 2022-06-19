@@ -70,6 +70,7 @@ const getPanelState = async (serial: PadSerialManager2, settings: PanelSettings)
     }
 
     const loadPanelData = (data: string) => {
+        console.log(data);
         const sensors = data.split('\n').slice(1, -1);
         if (sensors.length != settings.sensorCount) errorState = true;
         if (!errorState) {
@@ -86,6 +87,21 @@ const getPanelState = async (serial: PadSerialManager2, settings: PanelSettings)
     await waitFor(() => serialComplete, 1);
     if (errorState) return undefined;
     return panels;
+}
+
+const setSensor = async (serial: PadSerialManager2, panelId: number, sensorId: number, pressThreshold: number, depressThreshold: number, stepRate: number) => {
+    const command = `w ${panelId} ${sensorId} ${pressThreshold} ${depressThreshold} ${stepRate}\n`;
+    await serial.write(command);
+}
+
+const arbitraryWrite = async (serial: PadSerialManager2, text: string, callback?: SerialEventCallback) => {
+    let serialComplete = false;
+    const callbackWrapper = (data: string) => {
+        callback && callback(data);
+        serialComplete = true;
+    }
+    await serial.write(`${text}\n`, callbackWrapper);
+    await waitFor(() => serialComplete, 1);
 }
 
 class PadSerialManager2 {
@@ -188,5 +204,7 @@ export default PadSerialManager2;
 export {
     getPanelSettings,
     browserHasSerial,
-    getPanelState
+    getPanelState,
+    setSensor,
+    arbitraryWrite
 };

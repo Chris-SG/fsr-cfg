@@ -15,8 +15,12 @@ export default function App() {
         setLoading(true);
     });
 
+    const loadPanelSettings = () => {
+        getPanelSettings(serialManager).then(setPanelSettings);
+    }
+
     useEffect(() => {
-        !loading && getPanelSettings(serialManager).then(setPanelSettings);
+        !loading && loadPanelSettings();
     }, [loading]);
 
     if (!supported) {
@@ -48,9 +52,7 @@ export default function App() {
     return (
         <div>
             <p>{`${JSON.stringify(panelSettings)}`}</p>
-            <tbody>
-                {[...Array(panelSettings?.panelCount)].map((x, i) => <button onClick={() => serialManager.write(`p ${i}\n`, console.log)}>panel {i}</button>)}
-            </tbody>
+            <button onClick={loadPanelSettings}>Reload settings</button>
             <div>
                 {panelSettings && <PadEmitter serial={serialManager} settings={panelSettings} />}
             </div>
